@@ -42,7 +42,7 @@ router.post("/login", (req, res) => {
     res.redirect("/categorias");
   } else {
     req.flash("error_msg", "Credenciais inválidas");
-    res.redirect("admin/login");
+    res.redirect("/login");
   }
 });
 
