@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: _sistema-de-pedidos_
+    runtime: node
+    repo: https://github.com/DesireeCost4/_sistema-de-pedidos_
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: node app.js
+version: "1"
