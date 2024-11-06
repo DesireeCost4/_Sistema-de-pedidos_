@@ -144,7 +144,7 @@ router.post(
       .save()
       .then(() => {
         req.flash("success_msg", "Produto cadastrado com sucesso!");
-        res.redirect("/admin/categorias");
+        res.redirect("/categorias");
       })
       .catch((err) => {
         req.flash("error_msg", "Houve um erro ao cadastrar produto.");
@@ -219,22 +219,22 @@ router.post("/categorias/deletar", async (req, res) => {
 
     if (!categoriaId) {
       req.flash("error_msg", "ID da categoria não fornecido");
-      return res.redirect("/admin/categorias");
+      return res.redirect("/categorias");
     }
 
     const categoria = await Categoria.findByIdAndDelete(categoriaId);
 
     if (!categoria) {
       req.flash("error_msg", "Categoria não encontrada");
-      return res.redirect("/admin/categorias");
+      return res.redirect("/categorias");
     }
 
     req.flash("success_msg", "Categoria deletada com sucesso");
-    res.redirect("/admin/categorias");
+    res.redirect("/categorias");
   } catch (err) {
     console.error(err);
     req.flash("error_msg", "Erro ao deletar a categoria: " + err.message);
-    res.redirect("/admin/categorias");
+    res.redirect("/categorias");
   }
 });
 
